@@ -31,6 +31,9 @@ private:
     void SetRectSize();
     void CreateTable();
     void SetFigure();
+    void AddFigure(vector<QGraphicsPixmapItem*> allFig);
+    figures figures;
+    vector<QGraphicsPixmapItem*> allFig;
 
 public:
     chess_table();

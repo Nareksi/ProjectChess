@@ -3,15 +3,30 @@
 #include<QPixmap>
 #include<QWidget>
 #include<QLabel>
+#include <QGraphicsPixmapItem>
+#include <QPixmap>
+#include<vector>
 #pragma once
 class chess_table;
-class Figures: public QLabel
-{
-    Q_OBJECT
-protected:
-    QPixmap*fig;
+
+using namespace std;
+
+struct FigureData{
+    QString path;
+    bool isBlack;
+    QString info;
+};
+
+class figures {
+private:
+
+    vector<QPixmap> figureImages;
+    QVector<FigureData> figuresInfo;
 public:
-    Figures();
+    figures();
+vector<QGraphicsPixmapItem*>setImages();
+    QVector<QPixmap> getFigureImages();
+    QVector<FigureData> getFigureInfo();
 };
 
 #endif // FIGURES_H

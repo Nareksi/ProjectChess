@@ -7,9 +7,13 @@ chess_table::chess_table() {
     letters = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
     numbers = {'1', '2', '3', '4', '5', '6', '7', '8'};
     scene = new QGraphicsScene();
+    allFig = figures.setImages();
     cellSize= 100;
     SetRectSize();
     CreateTable();
+    AddFigure(allFig);
+
+
     AddInView();
     size = 8;
 }
@@ -78,6 +82,72 @@ void chess_table::SetRectSize(){
     rect.resize(8);
     for (int i = 0; i < 8; ++i) {
         rect[i].resize(8);
+    }
+}
+
+void chess_table::AddFigure(vector<QGraphicsPixmapItem*> allFig){
+    QGraphicsPixmapItem *blackPawn = allFig[0];
+    QGraphicsPixmapItem *whitePawn = allFig[1];
+    QGraphicsPixmapItem *blackRook = allFig[2];
+    QGraphicsPixmapItem *whiteRook = allFig[3];
+    QGraphicsPixmapItem *blackHorse = allFig[4];
+    QGraphicsPixmapItem *whiteHorse = allFig[5];
+    QGraphicsPixmapItem *blackElephant = allFig[6];
+    QGraphicsPixmapItem *whiteElephant = allFig[7];
+    QGraphicsPixmapItem *blackQueen = allFig[8];
+    QGraphicsPixmapItem *whiteQueen = allFig[9];
+    QGraphicsPixmapItem *blackKing = allFig[10];
+    QGraphicsPixmapItem *whiteKing = allFig[11];
+    for (int i = 0; i < 8; ++i) {
+        for (int j = 0; j < 8; ++j) {
+            QGraphicsPixmapItem *pawn;
+            if ((i == 0 && j == 0)|| (i == 0 && j == 7)){
+                pawn = new QGraphicsPixmapItem(blackRook->pixmap());
+            }
+            else if ((i == 0 && j == 1)|| (i == 0 && j == 6)){
+                pawn = new QGraphicsPixmapItem(blackHorse->pixmap());
+            }
+            else if ((i == 0 && j == 2)|| (i == 0 && j == 5)){
+                pawn = new QGraphicsPixmapItem(blackElephant->pixmap());
+            }
+            else if (i == 0 && j == 3){
+                pawn = new QGraphicsPixmapItem(blackQueen->pixmap());
+            }
+            else if (i == 0 && j == 4){
+                pawn = new QGraphicsPixmapItem(blackKing->pixmap());
+            }
+            else if (i == 1){
+                pawn = new QGraphicsPixmapItem(blackPawn->pixmap());
+            }
+
+            else if ((i == 7 && j == 0)|| (i == 7 && j == 7)){
+                pawn = new QGraphicsPixmapItem(whiteRook->pixmap());
+            }
+            else if ((i == 7 && j == 1)|| (i == 7 && j == 6)){
+                pawn = new QGraphicsPixmapItem(whiteHorse->pixmap());
+            }
+            else if ((i == 7 && j == 2)|| (i == 7 && j == 5)){
+                pawn = new QGraphicsPixmapItem(whiteElephant->pixmap());
+            }
+            else if (i == 7 && j == 3){
+                pawn = new QGraphicsPixmapItem(whiteQueen->pixmap());
+            }
+            else if (i == 7 && j == 4){
+                pawn = new QGraphicsPixmapItem(whiteKing->pixmap());
+            }
+            else if (i == 6){
+                pawn = new QGraphicsPixmapItem(whitePawn->pixmap());
+            }
+            else{
+                continue;
+            }
+
+            pawn->setPos(j * cellSize + (cellSize - pawn->boundingRect().width()) / 2,
+                         i * cellSize + (cellSize - pawn->boundingRect().height()) / 2);
+
+
+            scene->addItem(pawn);
+        }
     }
 }
 

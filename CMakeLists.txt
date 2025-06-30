@@ -24,8 +24,10 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         chess_table.h chess_table.cpp
-        images/wp.png
+
         figures.h figures.cpp
+
+        Resources.qrc
 
 
     )

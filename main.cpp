@@ -14,8 +14,8 @@ int main(int argc, char *argv[])
 
     MainWindow w;
     chess_table table;
-    Figures f;
-    f.show();
+
+    //f.show();
 
     return a.exec();
 }
