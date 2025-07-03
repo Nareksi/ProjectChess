@@ -328,6 +328,8 @@ C:/Users/Компьютер/Documents/ProjectChess/mainwindow.h
  mdp:D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/qwidget.h
 C:/Users/Компьютер/Documents/ProjectChess/chess_table.cpp
 C:/Users/Компьютер/Documents/ProjectChess/figures.cpp
+C:/Users/Компьютер/Documents/ProjectChess/main.cpp
 C:/Users/Компьютер/Documents/ProjectChess/mainwindow.cpp
  uic:./ui_mainwindow.h
-C:/Users/Компьютер/Documents/ProjectChess/main.cpp
+C:/Users/Компьютер/Documents/ProjectChess/game_logic.h
+C:/Users/Компьютер/Documents/ProjectChess/game_logic.cpp

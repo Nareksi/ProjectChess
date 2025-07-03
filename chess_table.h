@@ -7,6 +7,8 @@
 #include<QGraphicsView>
 #include"figures.h"
 
+class game_logic;
+
 class Figures;
 
 using namespace std;
@@ -31,13 +33,29 @@ private:
     void SetRectSize();
     void CreateTable();
     void SetFigure();
-    void AddFigure(vector<QGraphicsPixmapItem*> allFig);
+    void AddFigure();
     figures figures;
     vector<QGraphicsPixmapItem*> allFig;
 
+
+
 public:
     chess_table();
+    QGraphicsPixmapItem *blackPawn;
+    QGraphicsPixmapItem *whitePawn;
+    QGraphicsPixmapItem *blackRook;
+    QGraphicsPixmapItem *whiteRook;
+    QGraphicsPixmapItem *blackHorse;
+    QGraphicsPixmapItem *whiteHorse;
+    QGraphicsPixmapItem *blackElephant;
+    QGraphicsPixmapItem *whiteElephant;
+    QGraphicsPixmapItem *blackQueen;
+    QGraphicsPixmapItem *whiteQueen;
+    QGraphicsPixmapItem *blackKing;
+    QGraphicsPixmapItem *whiteKing;
 
+    QGraphicsScene getScene();
+    vector<vector<QPoint>> getRect();
 };
 
 #endif // CHESS_TABLE_H

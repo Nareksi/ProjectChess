@@ -94,6 +94,15 @@ build CMakeFiles\chess.dir\figures.cpp.obj: CXX_COMPILER__chess_unscanned_Debug 
   TARGET_COMPILE_PDB = CMakeFiles\chess.dir\
   TARGET_PDB = chess.pdb
 
+build CMakeFiles\chess.dir\game_logic.cpp.obj: CXX_COMPILER__chess_unscanned_Debug C$:\Users\Компьютер\Documents\ProjectChess\game_logic.cpp || cmake_object_order_depends_target_chess
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  FLAGS = -DQT_QML_DEBUG /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MDd -Zc:__cplusplus -permissive- -utf-8
+  INCLUDES = -IC:\Users\Компьютер\Documents\ProjectChess\build\Desktop_x86_windows_msvc2022_pe_64bit-Debug\chess_autogen\include -external:ID:\Qt\6.7.2\msvc2019_64\include\QtCore -external:ID:\Qt\6.7.2\msvc2019_64\include -external:ID:\Qt\6.7.2\msvc2019_64\mkspecs\win32-msvc -external:ID:\Qt\6.7.2\msvc2019_64\include\QtWidgets -external:ID:\Qt\6.7.2\msvc2019_64\include\QtGui -external:W0
+  OBJECT_DIR = CMakeFiles\chess.dir
+  OBJECT_FILE_DIR = CMakeFiles\chess.dir
+  TARGET_COMPILE_PDB = CMakeFiles\chess.dir\
+  TARGET_PDB = chess.pdb
+
 build CMakeFiles\chess.dir\chess_autogen\EWIEGA46WW\qrc_Resources.cpp.obj: CXX_COMPILER__chess_unscanned_Debug C$:\Users\Компьютер\Documents\ProjectChess\build\Desktop_x86_windows_msvc2022_pe_64bit-Debug\chess_autogen\EWIEGA46WW\qrc_Resources.cpp || cmake_object_order_depends_target_chess
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   FLAGS = -DQT_QML_DEBUG /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MDd -Zc:__cplusplus -permissive- -utf-8
@@ -111,7 +120,7 @@ build CMakeFiles\chess.dir\chess_autogen\EWIEGA46WW\qrc_Resources.cpp.obj: CXX_C
 #############################################
 # Link the executable chess.exe
 
-build chess.exe: CXX_EXECUTABLE_LINKER__chess_Debug CMakeFiles\chess.dir\chess_autogen\mocs_compilation.cpp.obj CMakeFiles\chess.dir\main.cpp.obj CMakeFiles\chess.dir\mainwindow.cpp.obj CMakeFiles\chess.dir\chess_table.cpp.obj CMakeFiles\chess.dir\figures.cpp.obj CMakeFiles\chess.dir\chess_autogen\EWIEGA46WW\qrc_Resources.cpp.obj | D$:\Qt\6.7.2\msvc2019_64\lib\Qt6Widgetsd.lib D$:\Qt\6.7.2\msvc2019_64\lib\Qt6Guid.lib D$:\Qt\6.7.2\msvc2019_64\lib\Qt6Cored.lib D$:\Qt\6.7.2\msvc2019_64\lib\Qt6EntryPointd.lib || chess_autogen chess_autogen_timestamp_deps
+build chess.exe: CXX_EXECUTABLE_LINKER__chess_Debug CMakeFiles\chess.dir\chess_autogen\mocs_compilation.cpp.obj CMakeFiles\chess.dir\main.cpp.obj CMakeFiles\chess.dir\mainwindow.cpp.obj CMakeFiles\chess.dir\chess_table.cpp.obj CMakeFiles\chess.dir\figures.cpp.obj CMakeFiles\chess.dir\game_logic.cpp.obj CMakeFiles\chess.dir\chess_autogen\EWIEGA46WW\qrc_Resources.cpp.obj | D$:\Qt\6.7.2\msvc2019_64\lib\Qt6Widgetsd.lib D$:\Qt\6.7.2\msvc2019_64\lib\Qt6Guid.lib D$:\Qt\6.7.2\msvc2019_64\lib\Qt6Cored.lib D$:\Qt\6.7.2\msvc2019_64\lib\Qt6EntryPointd.lib || chess_autogen chess_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = D:\Qt\6.7.2\msvc2019_64\lib\Qt6Widgetsd.lib  D:\Qt\6.7.2\msvc2019_64\lib\Qt6Guid.lib  D:\Qt\6.7.2\msvc2019_64\lib\Qt6Cored.lib  mpr.lib  userenv.lib  D:\Qt\6.7.2\msvc2019_64\lib\Qt6EntryPointd.lib  shell32.lib  d3d11.lib  dxgi.lib  dxguid.lib  d3d12.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib

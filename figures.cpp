@@ -2,7 +2,7 @@
 
 
 figures::figures() {
-    const QVector<QString> ALL_FIGURES = {
+     ALL_FIGURES = {
         {":/images/images/blackPawn.png"},
         {":/images/images/whitePawn.png"},
         {":/images/images/blackRook.png"},
@@ -18,10 +18,7 @@ figures::figures() {
     };
 
     for (int i = 0; i<ALL_FIGURES.size(); i++) {
-        QPixmap pixmap(ALL_FIGURES[i]);
-        pixmap = pixmap.scaled(80, 80, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-        figureImages.push_back(pixmap);
-        //figuresInfo.push_back({figure.isBlack, figure.info});
+        ALL_FIGURES[i] = ALL_FIGURES[i].scaled(80, 80, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     }
 
 }
@@ -29,8 +26,8 @@ figures::figures() {
 
 vector<QGraphicsPixmapItem*> figures::setImages(){
     vector<QGraphicsPixmapItem*> allFigures;
-    for (int i = 0; i < figureImages.size(); ++i) {
-        QGraphicsPixmapItem* f = new QGraphicsPixmapItem(figureImages[i]);
+    for (int i = 0; i < ALL_FIGURES.size(); ++i) {
+        QGraphicsPixmapItem* f = new QGraphicsPixmapItem(ALL_FIGURES[i]);
         allFigures.push_back(f);
     }
     return allFigures;

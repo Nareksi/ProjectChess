@@ -9,6 +9,8 @@ chess_autogen/timestamp: \
 	C:/Users/Компьютер/Documents/ProjectChess/chess_table.h \
 	C:/Users/Компьютер/Documents/ProjectChess/figures.cpp \
 	C:/Users/Компьютер/Documents/ProjectChess/figures.h \
+	C:/Users/Компьютер/Documents/ProjectChess/game_logic.cpp \
+	C:/Users/Компьютер/Documents/ProjectChess/game_logic.h \
 	C:/Users/Компьютер/Documents/ProjectChess/main.cpp \
 	C:/Users/Компьютер/Documents/ProjectChess/mainwindow.cpp \
 	C:/Users/Компьютер/Documents/ProjectChess/mainwindow.h \

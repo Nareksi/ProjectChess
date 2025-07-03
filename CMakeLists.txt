@@ -28,6 +28,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         figures.h figures.cpp
 
         Resources.qrc
+        game_logic.h game_logic.cpp
 
 
     )

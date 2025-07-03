@@ -4,18 +4,34 @@ const QColor chess_table::WHITE(Qt::white);
 
 chess_table::chess_table() {
     //mainTable = new QGraphicsRectItem();
+
     letters = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
     numbers = {'1', '2', '3', '4', '5', '6', '7', '8'};
+
     scene = new QGraphicsScene();
+
     allFig = figures.setImages();
+    blackPawn = allFig[0];
+    whitePawn = allFig[1];
+    blackRook = allFig[2];
+    whiteRook = allFig[3];
+    blackHorse = allFig[4];
+    whiteHorse = allFig[5];
+    blackElephant = allFig[6];
+    whiteElephant = allFig[7];
+    blackQueen = allFig[8];
+    whiteQueen = allFig[9];
+    blackKing = allFig[10];
+    whiteKing = allFig[11];
+
     cellSize= 100;
     SetRectSize();
     CreateTable();
-    AddFigure(allFig);
-
-
+    AddFigure();
     AddInView();
     size = 8;
+
+
 }
 
 void chess_table::CreateTable(){
@@ -85,19 +101,10 @@ void chess_table::SetRectSize(){
     }
 }
 
-void chess_table::AddFigure(vector<QGraphicsPixmapItem*> allFig){
-    QGraphicsPixmapItem *blackPawn = allFig[0];
-    QGraphicsPixmapItem *whitePawn = allFig[1];
-    QGraphicsPixmapItem *blackRook = allFig[2];
-    QGraphicsPixmapItem *whiteRook = allFig[3];
-    QGraphicsPixmapItem *blackHorse = allFig[4];
-    QGraphicsPixmapItem *whiteHorse = allFig[5];
-    QGraphicsPixmapItem *blackElephant = allFig[6];
-    QGraphicsPixmapItem *whiteElephant = allFig[7];
-    QGraphicsPixmapItem *blackQueen = allFig[8];
-    QGraphicsPixmapItem *whiteQueen = allFig[9];
-    QGraphicsPixmapItem *blackKing = allFig[10];
-    QGraphicsPixmapItem *whiteKing = allFig[11];
+void chess_table::AddFigure(){
+
+
+
     for (int i = 0; i < 8; ++i) {
         for (int j = 0; j < 8; ++j) {
             QGraphicsPixmapItem *pawn;
@@ -149,6 +156,7 @@ void chess_table::AddFigure(vector<QGraphicsPixmapItem*> allFig){
             scene->addItem(pawn);
         }
     }
+
 }
 
 

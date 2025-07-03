@@ -285,6 +285,12 @@
 			null
 		],
 		[
+			"C:/Users/\u041a\u043e\u043c\u043f\u044c\u044e\u0442\u0435\u0440/Documents/ProjectChess/game_logic.h",
+			"MU",
+			"EWIEGA46WW/moc_game_logic.cpp",
+			null
+		],
+		[
 			"C:/Users/\u041a\u043e\u043c\u043f\u044c\u044e\u0442\u0435\u0440/Documents/ProjectChess/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
@@ -353,6 +359,11 @@
 		],
 		[
 			"C:/Users/\u041a\u043e\u043c\u043f\u044c\u044e\u0442\u0435\u0440/Documents/ProjectChess/figures.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/\u041a\u043e\u043c\u043f\u044c\u044e\u0442\u0435\u0440/Documents/ProjectChess/game_logic.cpp",
 			"MU",
 			null
 		],
