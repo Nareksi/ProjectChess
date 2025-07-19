@@ -3,6 +3,7 @@ C:/Users/Компьютер/Documents/ProjectChess/chess_table.h
  mmc:Q_OBJECT
  mdp:C:/Users/Компьютер/Documents/ProjectChess/chess_table.h
  mdp:C:/Users/Компьютер/Documents/ProjectChess/figures.h
+ mdp:D:/Qt/6.7.2/msvc2019_64/include/QtCore/QDebug
  mdp:D:/Qt/6.7.2/msvc2019_64/include/QtCore/q20functional.h
  mdp:D:/Qt/6.7.2/msvc2019_64/include/QtCore/q20memory.h
  mdp:D:/Qt/6.7.2/msvc2019_64/include/QtCore/q20type_traits.h
@@ -32,6 +33,7 @@ C:/Users/Компьютер/Documents/ProjectChess/chess_table.h
  mdp:D:/Qt/6.7.2/msvc2019_64/include/QtCore/qcontainerinfo.h
  mdp:D:/Qt/6.7.2/msvc2019_64/include/QtCore/qcontainertools_impl.h
  mdp:D:/Qt/6.7.2/msvc2019_64/include/QtCore/qcontiguouscache.h
+ mdp:D:/Qt/6.7.2/msvc2019_64/include/QtCore/qcoreevent.h
  mdp:D:/Qt/6.7.2/msvc2019_64/include/QtCore/qdarwinhelpers.h
  mdp:D:/Qt/6.7.2/msvc2019_64/include/QtCore/qdatastream.h
  mdp:D:/Qt/6.7.2/msvc2019_64/include/QtCore/qdebug.h
@@ -157,6 +159,7 @@ C:/Users/Компьютер/Documents/ProjectChess/chess_table.h
  mdp:D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/QGraphicsItem
  mdp:D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/QGraphicsPixmapItem
  mdp:D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/QGraphicsScene
+ mdp:D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/QGraphicsSceneMouseEvent
  mdp:D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/QGraphicsView
  mdp:D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/QLabel
  mdp:D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/QWidget
@@ -164,6 +167,7 @@ C:/Users/Компьютер/Documents/ProjectChess/chess_table.h
  mdp:D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/qframe.h
  mdp:D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/qgraphicsitem.h
  mdp:D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/qgraphicsscene.h
+ mdp:D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/qgraphicssceneevent.h
  mdp:D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/qgraphicsview.h
  mdp:D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/qlabel.h
  mdp:D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/qscrollarea.h

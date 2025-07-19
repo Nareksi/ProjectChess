@@ -19,6 +19,7 @@ figures::figures() {
 
     for (int i = 0; i<ALL_FIGURES.size(); i++) {
         ALL_FIGURES[i] = ALL_FIGURES[i].scaled(80, 80, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+
     }
 
 }
@@ -29,6 +30,7 @@ vector<QGraphicsPixmapItem*> figures::setImages(){
     for (int i = 0; i < ALL_FIGURES.size(); ++i) {
         QGraphicsPixmapItem* f = new QGraphicsPixmapItem(ALL_FIGURES[i]);
         allFigures.push_back(f);
+
     }
     return allFigures;
 }

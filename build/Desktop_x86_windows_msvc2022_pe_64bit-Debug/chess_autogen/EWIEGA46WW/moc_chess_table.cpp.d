@@ -1,5 +1,6 @@
 C:/Users/Компьютер/Documents/ProjectChess/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/chess_autogen/EWIEGA46WW/moc_chess_table.cpp: C:/Users/Компьютер/Documents/ProjectChess/chess_table.h \
   C:/Users/Компьютер/Documents/ProjectChess/figures.h \
+  D:/Qt/6.7.2/msvc2019_64/include/QtCore/QDebug \
   D:/Qt/6.7.2/msvc2019_64/include/QtCore/q20functional.h \
   D:/Qt/6.7.2/msvc2019_64/include/QtCore/q20memory.h \
   D:/Qt/6.7.2/msvc2019_64/include/QtCore/q20type_traits.h \
@@ -29,6 +30,7 @@ C:/Users/Компьютер/Documents/ProjectChess/build/Desktop_x86_windows_msv
   D:/Qt/6.7.2/msvc2019_64/include/QtCore/qcontainerinfo.h \
   D:/Qt/6.7.2/msvc2019_64/include/QtCore/qcontainertools_impl.h \
   D:/Qt/6.7.2/msvc2019_64/include/QtCore/qcontiguouscache.h \
+  D:/Qt/6.7.2/msvc2019_64/include/QtCore/qcoreevent.h \
   D:/Qt/6.7.2/msvc2019_64/include/QtCore/qdarwinhelpers.h \
   D:/Qt/6.7.2/msvc2019_64/include/QtCore/qdatastream.h \
   D:/Qt/6.7.2/msvc2019_64/include/QtCore/qdebug.h \
@@ -154,6 +156,7 @@ C:/Users/Компьютер/Documents/ProjectChess/build/Desktop_x86_windows_msv
   D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/QGraphicsItem \
   D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/QGraphicsPixmapItem \
   D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/QGraphicsScene \
+  D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/QGraphicsSceneMouseEvent \
   D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/QGraphicsView \
   D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/QLabel \
   D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/QWidget \
@@ -161,6 +164,7 @@ C:/Users/Компьютер/Documents/ProjectChess/build/Desktop_x86_windows_msv
   D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/qframe.h \
   D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/qgraphicsitem.h \
   D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/qgraphicsscene.h \
+  D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/qgraphicssceneevent.h \
   D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/qgraphicsview.h \
   D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/qlabel.h \
   D:/Qt/6.7.2/msvc2019_64/include/QtWidgets/qscrollarea.h \

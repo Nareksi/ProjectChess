@@ -1,14 +1,18 @@
 #include "chess_table.h"
 const QColor chess_table::BROWN(139, 69, 19);
 const QColor chess_table::WHITE(Qt::white);
+const QColor chess_table::BLACK(Qt::black);
 
 chess_table::chess_table() {
     //mainTable = new QGraphicsRectItem();
 
     letters = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
     numbers = {'1', '2', '3', '4', '5', '6', '7', '8'};
-
+    Info.resize(32);
     scene = new QGraphicsScene();
+    scene->installEventFilter(this);
+    lastCol = -1, lastRow = -1;
+    selectionRect = new QGraphicsRectItem();
 
     allFig = figures.setImages();
     blackPawn = allFig[0];
@@ -24,13 +28,19 @@ chess_table::chess_table() {
     blackKing = allFig[10];
     whiteKing = allFig[11];
 
+
+
+
     cellSize= 100;
     SetRectSize();
     CreateTable();
     AddFigure();
+    toChess();
     AddInView();
-    size = 8;
+    printChessCoordinates();
+    scene->addItem(selectionRect);
 
+    size = 8;
 
 }
 
@@ -43,12 +53,15 @@ void chess_table::CreateTable(){
             pieceTable->setRect(j*cellSize,i*cellSize, cellSize, cellSize);
             if((i+j)%2 == 1){
                 pieceTable->setBrush(BROWN);
+                pieceTable->setPen(QPen(BLACK, 2));
             }
             else{
                 pieceTable->setBrush(WHITE);
+                pieceTable->setPen(QPen(BLACK, 2));
             }
-            rect[i][j].setX(pieceTable->x());
-            rect[i][j].setY(pieceTable->y());
+            pieceTable->setZValue(0);
+            rect[j].push_back(pieceTable);
+
             scene->addItem(pieceTable);
 
         }
@@ -96,68 +109,215 @@ void chess_table::AddInView(){
 
 void chess_table::SetRectSize(){
     rect.resize(8);
-    for (int i = 0; i < 8; ++i) {
-        rect[i].resize(8);
-    }
 }
 
 void chess_table::AddFigure(){
-
+    int figureIndex = 0;
 
 
     for (int i = 0; i < 8; ++i) {
         for (int j = 0; j < 8; ++j) {
-            QGraphicsPixmapItem *pawn;
+            QGraphicsPixmapItem *figure;
+            QPointF *coordinate;
+            QString name;
+            bool isBlack;
             if ((i == 0 && j == 0)|| (i == 0 && j == 7)){
-                pawn = new QGraphicsPixmapItem(blackRook->pixmap());
+                figure = new QGraphicsPixmapItem(blackRook->pixmap());
+                coordinate = new QPointF(j * cellSize, i * cellSize);
+                name = "blackRook";
+                isBlack = true;
+
             }
             else if ((i == 0 && j == 1)|| (i == 0 && j == 6)){
-                pawn = new QGraphicsPixmapItem(blackHorse->pixmap());
+                figure = new QGraphicsPixmapItem(blackHorse->pixmap());
+                coordinate = new QPointF(j * cellSize, i * cellSize);
+                name = "blackHorse";
+                isBlack = true;
+
             }
             else if ((i == 0 && j == 2)|| (i == 0 && j == 5)){
-                pawn = new QGraphicsPixmapItem(blackElephant->pixmap());
+                figure = new QGraphicsPixmapItem(blackElephant->pixmap());
+                coordinate = new QPointF(j * cellSize, i * cellSize);
+                name = "blackElephant";
+                isBlack = true;
+
             }
             else if (i == 0 && j == 3){
-                pawn = new QGraphicsPixmapItem(blackQueen->pixmap());
+                figure = new QGraphicsPixmapItem(blackQueen->pixmap());
+                coordinate = new QPointF(j * cellSize, i * cellSize);
+                name = "blackQueen";
+                isBlack = true;
+
             }
             else if (i == 0 && j == 4){
-                pawn = new QGraphicsPixmapItem(blackKing->pixmap());
+                figure = new QGraphicsPixmapItem(blackKing->pixmap());
+                coordinate = new QPointF(j * cellSize, i * cellSize);
+                name = "blackKing";
+                isBlack = true;
+
             }
             else if (i == 1){
-                pawn = new QGraphicsPixmapItem(blackPawn->pixmap());
+                figure = new QGraphicsPixmapItem(blackPawn->pixmap());
+                coordinate = new QPointF(j * cellSize, i * cellSize);
+                name = "blackPawn";
             }
 
             else if ((i == 7 && j == 0)|| (i == 7 && j == 7)){
-                pawn = new QGraphicsPixmapItem(whiteRook->pixmap());
+                figure = new QGraphicsPixmapItem(whiteRook->pixmap());
+                coordinate = new QPointF(j * cellSize, i * cellSize);
+                name = "whiteRook";
+                isBlack = true;
+
             }
             else if ((i == 7 && j == 1)|| (i == 7 && j == 6)){
-                pawn = new QGraphicsPixmapItem(whiteHorse->pixmap());
+                figure = new QGraphicsPixmapItem(whiteHorse->pixmap());
+                coordinate = new QPointF(j * cellSize, i * cellSize);
+                name = "whiteHorse";
+                isBlack = false;
+
             }
             else if ((i == 7 && j == 2)|| (i == 7 && j == 5)){
-                pawn = new QGraphicsPixmapItem(whiteElephant->pixmap());
+                figure = new QGraphicsPixmapItem(whiteElephant->pixmap());
+                coordinate = new QPointF(j * cellSize, i * cellSize);
+                name = "whiteElephant";
+                isBlack = false;
+
+
             }
             else if (i == 7 && j == 3){
-                pawn = new QGraphicsPixmapItem(whiteQueen->pixmap());
+                figure = new QGraphicsPixmapItem(whiteQueen->pixmap());
+                coordinate = new QPointF(j * cellSize, i * cellSize);
+                name = "whiteQueen";
+                isBlack = false;
+
+
             }
             else if (i == 7 && j == 4){
-                pawn = new QGraphicsPixmapItem(whiteKing->pixmap());
+                figure = new QGraphicsPixmapItem(whiteKing->pixmap());
+                coordinate = new QPointF(j * cellSize, i * cellSize);
+                name = "whiteKing";
+                isBlack = false;
+
+
             }
             else if (i == 6){
-                pawn = new QGraphicsPixmapItem(whitePawn->pixmap());
+                figure = new QGraphicsPixmapItem(whitePawn->pixmap());
+                coordinate = new QPointF(j * cellSize, i * cellSize);
+                name = "whitePawn";
+                isBlack = false;
+
             }
             else{
                 continue;
             }
 
-            pawn->setPos(j * cellSize + (cellSize - pawn->boundingRect().width()) / 2,
-                         i * cellSize + (cellSize - pawn->boundingRect().height()) / 2);
+            figure->setPos(j * cellSize + (cellSize - figure->boundingRect().width()) / 2,
+                         i * cellSize + (cellSize - figure->boundingRect().height()) / 2);
 
+            saveFiguresData(figure, coordinate, figureIndex, name, isBlack);
 
-            scene->addItem(pawn);
+            scene->addItem(figure);
+            figureIndex++;
         }
     }
 
 }
 
+QGraphicsScene chess_table::getScene(){
+    return scene;
+}
 
+
+
+void chess_table::saveFiguresData(QGraphicsPixmapItem *figureType, QPointF *figureCoordinate, int &i, QString &figureName, bool &isBlack){
+    Info[i].figureType = figureType;
+    Info[i].figuresCoordinate = figureCoordinate;
+    Info[i].figureName = figureName;
+    Info[i].isBlack = isBlack;
+}
+
+
+
+void chess_table::toChess() {
+    for (int i = 0; i < Info.size(); ++i) {
+        if (Info[i].figuresCoordinate && Info[i].figureType) {
+            int row = static_cast<int>(Info[i].figuresCoordinate->y()) / cellSize;
+            int col = static_cast<int>(Info[i].figuresCoordinate->x()) / cellSize;
+
+
+            char file = 'A' + col;
+            char rank = '1' + (7 - row);
+            Info[i].chessCoordinate = QString(file) + QString(rank);
+        }
+    }
+}
+
+bool chess_table::eventFilter(QObject *obj, QEvent *event) {
+    if (event->type() == QEvent::GraphicsSceneMousePress) {
+        QGraphicsSceneMouseEvent *mouseEvent = static_cast<QGraphicsSceneMouseEvent*>(event);
+        if (mouseEvent->button() == Qt::LeftButton) {
+            QPointF clickPos = mouseEvent->scenePos();
+            handleChessClick(clickPos);
+            return true;
+        }
+    }
+    return QObject::eventFilter(obj, event);
+}
+
+void chess_table::handleChessClick(const QPointF &clickPos) {
+    int col = static_cast<int>(clickPos.x()) / cellSize;
+    int row = static_cast<int>(clickPos.y()) / cellSize;
+
+    // Всегда обновляем выделение, даже для пустых клеток
+    setColor(col, row);
+
+    // Логика определения фигуры
+    char file = 'A' + col;
+    char rank = '1' + (7 - row);
+    QString chessCoord = QString(file) + QString(rank);
+
+    for (const auto &figure : Info) {
+        if (figure.chessCoordinate == chessCoord && figure.figureType) {
+            qDebug() << "Clicked on" << chessCoord << "->" << figure.figureName;
+            return;
+        }
+    }
+    qDebug() << "Clicked on empty cell:" << chessCoord;
+}
+QGraphicsRectItem* chess_table::setColor(int& col, int& row) {
+    if (col < 0 || col >= 8 || row < 0 || row >= 8) {
+        selectionRect->setRect(0, 0, 0, 0);
+        lastCol = -1;
+        lastRow = -1;
+        return nullptr;
+    }
+
+    // Проверяем, был ли это клик на уже выделенной клетке
+    if (col == lastCol && row == lastRow) {
+        // Снимаем выделение
+        selectionRect->setRect(0, 0, 0, 0);
+        lastCol = -1;
+        lastRow = -1;
+    } else {
+        // Устанавливаем новое выделение
+        selectionRect->setRect(col*cellSize, row*cellSize, cellSize, cellSize);
+        selectionRect->setPen(QPen(QColor(255, 215, 0), 4));
+        lastCol = col;
+        lastRow = row;
+    }
+
+    return selectionRect;
+}
+
+void chess_table::printChessCoordinates()  {
+    qDebug() << "Chess coordinates:";
+    for (size_t i = 0; i < Info.size(); ++i) {
+        qDebug() << "Raw coordinates:" << *Info[i].figuresCoordinate
+                 << "-> row:" << Info[i].figuresCoordinate->y() / cellSize<< "col:" << Info[i].figuresCoordinate->x()/ cellSize;
+        qDebug() << "Figure:" << Info[i].figureName;
+        qDebug() << "Chess coordinate:" << Info[i].chessCoordinate;
+    }
+}
+//ИДИ НАХУЙ
+//НАРЕК ЧМО
 

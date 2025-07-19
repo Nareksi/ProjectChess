@@ -5,14 +5,23 @@
 #include <QWidget>
 #include<QGraphicsScene>
 #include<QGraphicsView>
+#include<QGraphicsSceneMouseEvent>
+#include<QDebug>
 #include"figures.h"
 
 class game_logic;
 
 class Figures;
+struct FiguresInfo{
+    QPointF *figuresCoordinate;
+    QGraphicsPixmapItem *figureType;
+    QString chessCoordinate;
+    QString figureName;
+    bool isBlack;
+};
 
 using namespace std;
-class chess_table:public QWidget
+class chess_table:public QWidget, public QGraphicsRectItem
 {
     Q_OBJECT
 private:
@@ -20,7 +29,8 @@ private:
     int size;
     static const QColor BROWN;
     static const QColor WHITE;
-    vector<vector<QPoint>> rect;
+    static const QColor BLACK;
+    vector<vector<QGraphicsRectItem*>> rect;
     QGraphicsRectItem *mainTable;
     QGraphicsScene *scene;
     QGraphicsView *view;
@@ -36,6 +46,19 @@ private:
     void AddFigure();
     figures figures;
     vector<QGraphicsPixmapItem*> allFig;
+    void toChess();
+    vector<FiguresInfo> Info;
+    void saveFiguresData(QGraphicsPixmapItem *figureType, QPointF *figureCoordinate, int &i, QString &figureName, bool &isBlack);
+    void printChessCoordinates();
+    bool eventFilter(QObject *obj, QEvent *event) override;
+    void handleChessClick(const QPointF &clickPos);
+    QGraphicsRectItem* lastSelectedCell;
+    QGraphicsRectItem* setColor( int&col, int&row);
+    QGraphicsRectItem* selectionRect;
+    int lastCol = -1;
+    int lastRow = -1;
+
+
 
 
 

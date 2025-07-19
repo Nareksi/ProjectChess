@@ -10,6 +10,7 @@ class game_logic
 {
     chess_table table;
 
+
 public:
     game_logic();
 };
